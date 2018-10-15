@@ -20,6 +20,7 @@ class MusicLibraryController
 
       option = gets.strip
 
+
       case option
       when "list songs"
         list_songs
@@ -85,6 +86,12 @@ class MusicLibraryController
       Song.all.sort {|song1, song2| song1.name <=> song2.name}[(input-1)].tap {|song| puts "Playing #{song.name} by #{song.artist.name}"}
     end
 
+    if input == 0 || input > Song.all.size
+
+    end
+    Song.all.sort do |song1, song2|
+      song1.name <=> song2.name
+    end[(input-1)].tap {|song| puts "Playing #{song.name} by #{song.artist.name}"}
   end
 
 end
